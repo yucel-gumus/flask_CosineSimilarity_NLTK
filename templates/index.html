@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Benzerliği Bulucu</title>
+</head>
+<body>
+    <h1>Benzer Filmleri Bul</h1>
+    <form method="POST" action="/">
+        <label for="movie_title">Film ismi giriniz</label>
+        <input type="text" id="movie_title" name="movie_title" required>
+        <button type="submit">Bul</button>
+    </form>
+    {% if movie_title %}
+        <h2>'{{ movie_title }}' a benzer filmler:</h2>
+        <ul>
+            {% for movie in similar_movies %}
+                <li>{{ movie }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
